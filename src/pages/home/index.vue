@@ -1,6 +1,6 @@
 <template>
   <div class="camera_outer">
-    <p class="square"></p>
+    <!-- <p class="square"></p> -->
     <!--        playsinline webkit-playsinline="true"-->
     <video
       ref="photo"
@@ -17,7 +17,7 @@
       <div class="border-wrap">
         <p class="tip">请按图示将人脸放入取景框中</p>
         <div class="circle-wrap">
-          <div class="circle" @click="setImage()"></div>
+          <div class="circle" @click="setImage()" style="z-index: 20000"></div>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
     >
     </canvas>
     <div class="shade">
-      <img :src="scan" alt="" />
+      <img :src="scan" alt="" style="width: 100%; height: 100%" />
     </div>
     <div v-if="imgSrc" class="img_bg_camera">
       <img :src="imgSrc" alt="" class="tx_img" />
@@ -47,7 +47,7 @@
 // import { Loading } from "vux";
 // import scan from "../style/img/scan-img.png"; //遮罩图片
 // import scan from "./face-wrapper.jpg"; //遮罩图片
-import scan from "./123.png"; //遮罩图片
+import scan from "./111.png"; //遮罩图片
 // import { setStore, removeStore, getStore } from "../config/mUtils";
 export default {
   data() {
@@ -151,6 +151,7 @@ export default {
     },
     //  绘制图片（拍照功能）
     setImage() {
+      console.log("11");
       var _this = this;
       // 点击，canvas画图
       _this.thisContext.scale(-1, 1); //如果你上传图片是镜像的加上这段，我这边图片上传后会镜像
